@@ -13,14 +13,14 @@ node {
     }
 
     stage('Test: Go 1.13') {
-      sh "docker run --name yendo --rm -v \$(pwd):/go/src/github.com/jamiefdhurst/yendo -e DB_HOST=host.docker.internal -e DB_USER=root -e DB_NAME=mysql -it golang:1.13 cat"
+      sh "docker run --name yendo --rm -v \$(pwd):/go/src/github.com/jamiefdhurst/yendo -e DB_HOST=host.docker.internal -e DB_USER=root -e DB_NAME=mysql golang:1.13 cat"
       sh "docker exec yendo go get github.com/go-sql-driver/mysql"
       sh "docker exec yendo go test github.com/jamiefdhurst/yendo"
     }
 
     stage('Test: Go 1.12') {
       sh "docker stop yendo"
-      sh "docker run --name yendo --rm -v \$(pwd):/go/src/github.com/jamiefdhurst/yendo -e DB_HOST=host.docker.internal -e DB_USER=root -e DB_NAME=mysql -it golang:1.12 cat"
+      sh "docker run --name yendo --rm -v \$(pwd):/go/src/github.com/jamiefdhurst/yendo -e DB_HOST=host.docker.internal -e DB_USER=root -e DB_NAME=mysql golang:1.12 cat"
       sh "docker exec yendo go get github.com/go-sql-driver/mysql"
       sh "docker exec yendo go test github.com/jamiefdhurst/yendo"
     }
