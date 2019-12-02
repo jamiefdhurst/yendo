@@ -21,11 +21,11 @@ connection:
 * `DB_PASSWORD` - Password to connect using
 * `DB_NAME` - Database name to use when testing
 
-You can optionally pass a `DB_MIGRATION_FOLDER` environment variable to point to the current root of the package, so
-the tests can make use of the test migration data.
+If you check out the code into the standard GOPATH-expected location (`src/github.com/jamiefdhurst/yendo`), you can run 
+the tests immediately from within that location.
 
 Once these conditions are met, the tests can be performed simply by running:
 
 ```bash
-go test -v
+go test
 ```
