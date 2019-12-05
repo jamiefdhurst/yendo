@@ -1,0 +1,6 @@
+CREATE TABLE `foobar` (
+    `foobarid` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `foo` VARCHAR(10) NULL,
+    `bar` VARCHAR(20) NULL,
+    `baz` VARCHAR(30) NULL
+);
