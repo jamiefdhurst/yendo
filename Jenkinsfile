@@ -10,7 +10,8 @@ node {
 
     stage('Build: MySQL') {
       sh "docker run --rm --name yendo-mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mariadb"
-      sh "sleep 120"
+      sh "docker run --rm --network container:yendo-mysql willwill/wait-for-it 127.0.0.1:3306 -t 600"
+      sh "sleep 15"
     }
 
     stage('Test: Go 1.13') {
