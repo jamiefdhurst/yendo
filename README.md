@@ -6,7 +6,9 @@
 
 A small and simple MySQL database package for Go that includes support for automatic migrations.
 
-Currently supports Golang 1.13 - 1.15.
+## Support
+
+Yendo supports GOPATH and Go Module installations, from Go 1.13 up to Go 1.17.
 
 ## Usage Example
 

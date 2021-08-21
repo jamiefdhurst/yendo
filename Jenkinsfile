@@ -14,6 +14,18 @@ node {
       sh "sleep 15"
     }
 
+    stage('Test: Go 1.17') {
+      sh "docker run --name yendo --rm --network container:yendo-mysql -w /go/src/github.com/jamiefdhurst/yendo -v \$(pwd):/go/src/github.com/jamiefdhurst/yendo -e DB_HOST=127.0.0.1 -e DB_USER=root -e DB_NAME=mysql -d -i golang:1.17 cat"
+      sh "docker exec yendo go mod download"
+      sh "docker exec yendo go test ."
+    }
+
+    stage('Test: Go 1.16') {
+      sh "docker run --name yendo --rm --network container:yendo-mysql -w /go/src/github.com/jamiefdhurst/yendo -v \$(pwd):/go/src/github.com/jamiefdhurst/yendo -e DB_HOST=127.0.0.1 -e DB_USER=root -e DB_NAME=mysql -d -i golang:1.16 cat"
+      sh "docker exec yendo go mod download"
+      sh "docker exec yendo go test ."
+    }
+
     stage('Test: Go 1.15') {
       sh "docker run --name yendo --rm --network container:yendo-mysql -v \$(pwd):/go/src/github.com/jamiefdhurst/yendo -e DB_HOST=127.0.0.1 -e DB_USER=root -e DB_NAME=mysql -d -i golang:1.15 cat"
       sh "docker exec yendo go get github.com/go-sql-driver/mysql"
