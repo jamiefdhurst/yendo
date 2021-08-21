@@ -1,10 +1,12 @@
 # Yendo
 
 ![License](https://img.shields.io/github/license/jamiefdhurst/yendo.svg)
-[![Build Status](https://ci.jamiehurst.co.uk/buildStatus/icon?job=yendo%2Fmaster)](https://ci.jamiehurst.co.uk/job/yendo/job/master/)
+[![Build Status](https://ci.jamiehurst.co.uk/buildStatus/icon?job=github%2fyendo%2Fmaster)](https://ci.jamiehurst.co.uk/job/github/job/yendo/job/master/)
 [![Latest Version](https://img.shields.io/github/release/jamiefdhurst/yendo.svg)](https://github.com/jamiefdhurst/yendo/releases)
 
 A small and simple MySQL database package for Go that includes support for automatic migrations.
+
+Currently supports Golang 1.13 - 1.15.
 
 ## Usage Example
 
